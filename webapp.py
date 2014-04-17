@@ -15,7 +15,7 @@ def canvas():
   canvasRequestJSON = srHelper.verifyAndDecode()
 
   #load request data json to extract parameters
-  return canvasRequestJSON
+  return str(canvasRequestJSON)
 
 if __name__ == "__main__":
     app.run()
