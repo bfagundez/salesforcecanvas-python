@@ -3,6 +3,7 @@ from canvas_signed_request import SignedRequest
 app = Flask(__name__)
 import os 
 
+
 @app.route("/")
 def hello():
     return "Hello World!"
@@ -11,10 +12,10 @@ def hello():
 @app.route('/canvas', methods=['POST','GET'])
 def canvas():
   print 'received signed request'
-  sr_param = request.form['signed_request']
   secret = os.environ.get('SECRET')
-  print ' sr param '+sr_param
   print ' secret '+secret
+  sr_param = request.form['signed_request']
+  print ' sr param '+sr_param
   srHelper = SignedRequest(secret,sr_param)
   canvasRequestJSON = srHelper.verifyAndDecode()
 
