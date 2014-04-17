@@ -8,12 +8,13 @@ def hello():
     return "Hello World!"
 
 # add a new route
-@app.route('/canvas', methods=['POST',])
+@app.route('/canvas', methods=['POST','GET'])
 def canvas():
   print 'received signed request'
   sr_param = request.form['signed_request']
   secret = os.environ.get('SECRET')
-  print ' sr param '
+  print ' sr param '+sr_param
+  print ' secret '+secret
   srHelper = SignedRequest(secret,sr_param)
   canvasRequestJSON = srHelper.verifyAndDecode()
 
