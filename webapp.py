@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from canvas_signed_request import SignedRequest
 app = Flask(__name__)
 import os 
